@@ -4,15 +4,27 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
+//login
 Route::get('/login',[AuthController::class,'index']);
 Route::post('/login',[AuthController::class,'login'])->name('login');
+
+//register
+Route::get('/register',[AuthController::class,'register']);
+// Route::resource('agenda',AgendaController::class);
+Route::post('/register',[AuthController::class,'registerStore'])->name('register');
+
+//logout
 Route::get('/logout',[AuthController::class,'logout']);
-Route::group(['middleware' => ['auth','role:admin,finance']],function(){
+
+//dashboard
+Route::group(['middleware' => ['auth','role:admin,staff,customer']],function(){
     Route::get('/dashboard',[DashboardController::class,'index']);
 });
-// MASIH ADA KESALAHAN DI ROUTE STAFF
-// Route::group(['middleware' => ['auth','role:staff']],function(){
-//     Route::get('/staff', function(){
-//         return 'halaman staff';
-//     });
-// });
+
+//admin
+
+//staff
+
+//customer
+
+

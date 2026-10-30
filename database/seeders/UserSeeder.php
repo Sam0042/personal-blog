@@ -29,10 +29,10 @@ class UserSeeder extends Seeder
                 'status'=>'active'
             ],
             [
-                'name'=>'finance',
-                'email'=>'finance@gmail.com',
-                'password'=>'finance',
-                'role'=>'finance',
+                'name'=>'customer',
+                'email'=>'customer@gmail.com',
+                'password'=>'customer',
+                'role'=>'customer',
                 'status'=>'active'
             ],
         ];

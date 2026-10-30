@@ -394,7 +394,7 @@
                         class="brand-image opacity-75 shadow" />
                     <!--end::Brand Image-->
                     <!--begin::Brand Text-->
-                    <span class="brand-text fw-light">AdminLTE 4</span>
+                    <span class="brand-text fw-light">{{ auth()->user()->name }}</span>
                     <!--end::Brand Text-->
                 </a>
                 <!--end::Brand Link-->
@@ -423,12 +423,14 @@
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/users" class="nav-link {{ request()->is('users') ? 'active' : '' }}">
-                                <i class="nav-icon bi bi-people"></i>
-                                <p>Users</p>
-                            </a>
-                        </li>
+                        @if (auth()->user()->role === 'admin')
+                            <li class="nav-item">
+                                <a href="/users" class="nav-link {{ request()->is('users') ? 'active' : '' }}">
+                                    <i class="nav-icon bi bi-people"></i>
+                                    <p>Users</p>
+                                </a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a href="/logout" class="nav-link ">
                                 <i class="nav-icon bi bi-power"></i>
